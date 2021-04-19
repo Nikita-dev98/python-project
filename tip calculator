@@ -1,0 +1,14 @@
+user_input = float(input("please enter bill amount"))
+while True:
+    tip_choice = input("type 'a' for 10%,'b' for 12 and 'c' for 18")
+    if tip_choice == "a":
+        tip = 0.10 * user_input
+    elif tip_choice == "b":
+        tip = 0.12 * user_input
+    elif tip_choice == "c":
+        tip = 0.18 * user_input
+    else:
+        print("wrong choie entered. please enter one of the options")
+
+    print("tip to be paid: %0.2f" %(tip))
+    break
