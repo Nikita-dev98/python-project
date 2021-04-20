@@ -1,0 +1,23 @@
+def hotel_cost(nights):
+    return nights*100
+
+def plane_cost(city):
+    if city == "a":
+        return 150
+    elif city == "b":
+        return 100
+    elif city == "c":
+        return 200
+
+def car_cost(days):
+    rent = days*40
+    if days>=5:
+        rent = days*35
+    elif days <4:
+        rent = days*50
+    return rent
+    
+def total_cost(nights,city,days):
+    return hotel_cost(days)+plane_cost(city)+car_cost(days)
+    
+print(total_cost(3,"a",4))
