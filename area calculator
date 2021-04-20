@@ -1,0 +1,18 @@
+import math
+
+def getArea(shape):
+    if shape == "rectangle":
+        l = float(input("enter length"))
+        b = float(input("enter breadth"))
+        #return float(l*b)
+        return l*b
+    elif shape == "square":
+        a = float(input("enter side length"))
+        return a^2
+    elif shape == "circle":
+        r = float(input("enter radius"))
+        return math.pi*r*r
+
+type = input("please enter the shape of your plot: rectangle, square, circle")
+area = getArea(type)
+print("area:",area)
