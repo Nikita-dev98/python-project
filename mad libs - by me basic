@@ -1,0 +1,9 @@
+n1 = input("enter 1st noun:")
+v1 = input("enter 1st verb")
+v2 = input("enter 2nd verb")
+a1 = input("enter 1st adjective")
+a2 = input("enter 2nd adjctive")
+
+
+print("-----MAD LIBS-----")
+print("world's best game of",n1, ". he travels" ,v1, "and wants to" ,v2, ". he is" ,a1, "and his family is", a2,".")
