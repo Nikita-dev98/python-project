@@ -1,0 +1,18 @@
+def rps(g1,g2):
+    if g1 == "rock" and g2 == "scissors":
+        print("user1 wins")
+    elif g1 == "rock" and g2 == "paper":
+        print("user2 wins")
+    elif g1 == "scissors" and g2 == "rock":
+        print("user2 wins")
+    elif g1 == "scissors" and g2 == "paper":
+        print("user1 wins")
+    elif g1 == "paper" and g2 == "rock":
+        print("user1 wins")
+    elif g1 == "paper" and g2 == "scissors":
+        print("user2 wins")
+
+
+u1 = input("choose rock,paper,scissors")
+u2 = input("choose rock,paper,scissors")
+print(rps(u1, u2))
