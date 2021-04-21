@@ -1,0 +1,16 @@
+import random
+
+def checkGuess(sum):
+    guess = 3
+    while guess <=3:
+        user = int(input("enter the guess of sum"))
+        if user == sum:
+            print("\n the answer is correct and it is",sum)
+        else:
+            print("\n try again")
+        guess+=1
+        
+dice1 = random.randint(1,6)
+dice2 = random.randint(1,6)
+sum = dice1+dice2
+checkGuess(sum)
