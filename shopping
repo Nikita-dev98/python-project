@@ -1,0 +1,12 @@
+shop_list = ["banana", "apple", "orange"]
+items = {"banana":4, "apple":5, "orange":2, "tomato":3}
+stock = {"banana":5, "apple":2, "orange":3, "tomato":1}
+def bill(food):
+    total=0
+    for i in food:
+        if stock[i]>0:
+            total += items[i]
+            stock[i] -= 1
+    return total
+    
+print(bill(shop_list))
