@@ -1,0 +1,79 @@
+import calendar
+import sys
+from time import strftime,sleep,gmtime
+
+calendar = {}
+def welcome_msg():
+    print("welcome user")
+    #print current date
+    print(strftime("%A, %B, %d, %Y"))
+    #print current time
+    print(strftime("%M:%H:%S", gmtime()))
+    
+    
+def start_cal():
+    welcome_msg()
+    start = True
+    while start:
+         
+         user_input = int(input("please enter 1 to view calendar, 2 to add event, 3 to update event, 4 to delete event, 5 to close"))
+         if user_input == 1:
+            if len(calendar.keys()) == 0:
+                print("\nempty calendar")
+                break
+            else:
+                for i in calendar:
+                    print("i : " + calendar[i])
+                    break
+         elif user_input == 2:
+             event = input("entr event name:")
+             date = input("enter date in (DD/MM/YYYY):")
+             if len(date)>10 or len(date)<10 or int(date[6:]) < int(strftime("%Y")):
+                 print("invalid date entered")
+                 try_again = input("try again: Y/N -")
+                 if try_again == "Y":
+                     continue
+                 else:
+                     start = False
+             #add event
+             else:
+                 calendar[date] = event
+                 print("event successfully added")
+                 for i in calendar:
+                     print(i+":"+calendar[i])
+                 
+         elif user_input == 3:
+             update = input("enter update")
+             date = input("enter date in (DD/MM/YYYY):")
+             calendar[date] = update
+             for i in calendar:
+                 print("updated successfully")
+                 print(i + ":" + calendar[i])
+                 
+         elif user_input == 4:
+             if len(calendar.keys()) == 0:
+                 print("calendar empty")
+             else:
+                 event = input("What event? ")
+                 #search the calendar
+                 for date in calendar.keys():
+                    if event == calendar[date]:
+                        del calendar[date]
+                        print
+                        print('Event deleted')
+                        print
+                        for i in calendar:
+                            print(i + ': ' + calendar[i])
+                    else:
+                        print("incorrect event given")
+                         
+                         
+         elif user_input == 5:
+             print("bye")
+             start = False
+        
+         else:
+             print("invalid option")
+             
+start_cal()
+        
