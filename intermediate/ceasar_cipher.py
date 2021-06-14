@@ -2,11 +2,11 @@
 
 alphabet = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz"
 
-#class CeasarCipher:
-#	def _init_(self,text,shift):
-#		self.text = text
-#		self.shift = shift
-def encode(str,shift):
+class CeasarCipher:
+	def _init_(self,text,shift):
+		self.text = text
+		self.shift = shift
+def encode(self,str,shift):
 		encode = ''
 		str = str.lower()
 		for i in str:
@@ -16,7 +16,7 @@ def encode(str,shift):
 				encode+=i
 		return encode.upper()
 
-def decode(str,shift):
+def decode(self,str,shift):
 		decode=''
 		str = str.lower()
 		for i in str:
@@ -27,5 +27,6 @@ def decode(str,shift):
 		return decode.upper()
 
 
-print(encode("john",2))
+obj1 = CeasarCipher("john",2)
+print(obj1.encode("max",3))
 
