@@ -14,7 +14,6 @@ words = [
     "apple",
     "reverse",
     "water",
-    "binod",
     "codesnail",
 ]
 
