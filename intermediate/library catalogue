@@ -1,0 +1,49 @@
+class Library:
+    
+    def _init_(self,title):
+        self.title=title
+        
+    def availableBooks(self):
+        for i in self.title:
+            print(i)
+            
+    def lendBook(self, requestTitle):
+        if i in self.title:
+            print("this book is now assigned to you.")
+            self.title.remove(i)
+        else:
+            print("the book requested is not available")
+            
+    def returnBook(self,returnTitle):
+        self.title.append(returnTitle)
+        print("thanks for returning")
+    
+class Student:
+    def requestBook(self):
+        print("enter book: ")
+        self.book = input()
+        return self.book
+    
+    def returnBook(self):
+        print("enter book to return: ")
+        self.book=input()
+        return self.book
+        
+def main():
+    library = Library()
+    library = ["The Last Battle","The Screwtape letters","The Great Divorce"]
+    student = Student()
+    checkedOut=False
+    
+    while checkedOut == False:
+        choice = input(print("Enter 1. display available books 2. borrow a book 3. return a book 4. exit"))
+        
+        if choice == 1:
+            library.availableBooks()
+        elif choice == 2:
+            library.lendBook(student.requestBook())
+        elif choice == 3:
+            library.returnBook(student.returnBook())
+        else:
+            break
+main()
