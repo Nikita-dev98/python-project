@@ -1,0 +1,47 @@
+import smtplib
+from email.mime.text import MIMEText
+from email import encoders
+from email.mime.base import MIMEBase
+from email.mime.multipart import MIMEMultipart
+import os.path
+
+# for password-need to generate app password from security section of gmail account-https://stackoverflow.com/questions/72576024/smtplib-smtpauthenticationerror-535-b5-7-8-username-and-password-not-accepte
+
+sender_email = 'nikitabala23@gmail.com'
+sender_password = 'gujluvqxzayneggg'
+receiver_email = 'nikitabala23@gmail.com'
+subject = "test email"
+message = "this is a test email automated using python"
+file_location = "C:\\Users\\Nikita\\Desktop\\one_img.jpg"
+
+# create msg object and attach everything
+msg = MIMEMultipart()
+msg['From'] = sender_email
+msg['To'] = receiver_email
+msg['Subject'] = subject
+
+msg.attach(MIMEText(message))
+
+# setup attachment
+filename = os.path.basename(file_location)
+attachment = open(file_location, 'rb')
+part = MIMEBase('application', 'octet-stream')
+part.set_payload(attachment.read())
+encoders.encode_base64(part)
+part.add_header('content', "attachment; filename= %s" % filename)
+
+# attach the attachment to the MIMEmultipart object
+msg.attach(part)
+
+# encapsulate session
+s = smtplib.SMTP('smtp.gmail.com', 587)
+# start tls secure session
+s.starttls()
+# authentication
+s.login(sender_email, sender_password)
+text = msg.as_string()
+
+# send mail
+s.sendmail(sender_email, receiver_email, text)
+# close session
+s.quit()
