@@ -1,0 +1,12 @@
+n = input().split(".")
+print("[.]".join(n))
+
+--------------------------------------
+
+class Defang():
+  def defang(self, address):
+    address = address.split(".")
+    return "[.]".join(address)
+
+obj = Defang()
+print(obj.defang("1.2.3.4"))
